@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/site.config";
 import { PhoneLink } from "@/components/PhoneLink";
 
@@ -47,6 +48,17 @@ export default function AboutPage() {
               requested repair isn&apos;t needed, they&apos;ll tell you — and
               fix the actual problem instead.
             </p>
+          </div>
+
+          <div className="mt-10 overflow-hidden rounded-lg">
+            <Image
+              src="/images/mechanic-grinding-repair-1280w.webp"
+              alt="Mechanic using a power tool on an engine exhaust component during a truck repair"
+              width={1280}
+              height={960}
+              className="w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
           </div>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">

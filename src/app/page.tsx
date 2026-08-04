@@ -3,6 +3,7 @@ import { siteConfig } from "@/site.config";
 import { JsonLd } from "@/components/JsonLd";
 import { Wrench, ScanSearch, Truck, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import reviews from "../../content/reviews.json";
 
 const homeFaqs = [
@@ -20,7 +21,7 @@ const homeFaqs = [
   },
   {
     question: "Do you offer roadside assistance?",
-    answer: `Yes. We offer roadside assistance when breakdowns happen on the road. Call ${siteConfig.phoneDisplay} — we are available 24 hours a day, Monday through Saturday.`,
+    answer: `Yes. We come to you. We offer roadside assistance when breakdowns happen on the road. Call ${siteConfig.phoneDisplay} — we are available 24 hours a day, Monday through Saturday.`,
   },
   {
     question: "How do I get a repair?",
@@ -49,22 +50,34 @@ export default function Home() {
       <JsonLd data={homeFaqSchema} />
 
       {/* Hero */}
-      <section className="bg-asphalt px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
-        <div className="mx-auto max-w-content text-center">
-          <h1 className="font-display text-4xl font-bold leading-tight text-bone sm:text-5xl lg:text-6xl">
-            24-Hour Truck Repair
-            <br />
-            <span className="text-safety-amber">
-              in {siteConfig.city}, {siteConfig.state}
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-smoke sm:text-xl">
-            Commercial truck breakdowns don&apos;t wait for business hours.
-            Neither do we. Call Big Bear for fast, honest repairs — Monday
-            through Saturday, any hour.
-          </p>
-          <div className="mt-10">
-            <PhoneLink size="xl" className="text-safety-amber" />
+      <section className="relative overflow-hidden bg-asphalt">
+        <Image
+          src="/images/hero-roadside-snow-1920w.webp"
+          alt="Red semi cab pulled over on a snowy highway shoulder during a roadside repair call"
+          width={1645}
+          height={2193}
+          priority
+          className="absolute inset-0 h-full w-full object-cover object-top"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-asphalt/45" />
+        <div className="relative px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
+          <div className="mx-auto max-w-content text-center">
+            <h1 className="font-display text-4xl font-bold leading-tight text-bone sm:text-5xl lg:text-6xl">
+              24-Hour Truck Repair
+              <br />
+              <span className="text-safety-amber">
+                in {siteConfig.city}, {siteConfig.state}
+              </span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-smoke sm:text-xl">
+              Commercial truck breakdowns don&apos;t wait for business hours.
+              Neither do we. Call Big Bear for fast, honest repairs — Monday
+              through Saturday, any hour.
+            </p>
+            <div className="mt-10">
+              <PhoneLink size="xl" className="text-safety-amber" />
+            </div>
           </div>
         </div>
       </section>
@@ -160,15 +173,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Review */}
-      {reviews.length > 0 && (
-        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mx-auto max-w-content">
-            <h2 className="text-center font-display text-3xl font-bold text-asphalt sm:text-4xl">
-              What Our Customers Say
-            </h2>
-            <div className="mx-auto mt-10 max-w-2xl">
-              {reviews.map((review) => (
+      {/* Reviews */}
+      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <h2 className="text-center font-display text-3xl font-bold text-asphalt sm:text-4xl">
+            What Our Customers Say
+          </h2>
+          <p className="mt-3 text-center font-body text-lg text-steel">
+            5.0 on Google across 13 reviews
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {(["Veronica Ceja", "D B", "Rosie Bernal", "Maria G", "Matthew Patrickson", "Spencer H."] as const).map((name) => {
+              const review = reviews.find((r) => r.name === name);
+              if (!review) return null;
+              return (
                 <blockquote
                   key={review.name}
                   className="rounded-lg border border-bone bg-white p-6 shadow-sm"
@@ -188,11 +206,46 @@ export default function Home() {
                     <span className="text-smoke"> — {review.source}</span>
                   </footer>
                 </blockquote>
-              ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Work Photos */}
+      <section className="bg-concrete px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <div className="grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <Image
+                src="/images/engine-detail-blue-hose-640w.webp"
+                alt="Close-up of a truck engine bay showing power steering reservoir and fuel filter"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 33vw, 400px"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <Image
+                src="/images/brake-rotor-hub-640w.webp"
+                alt="Truck brake rotor and wheel hub with the wheel removed for inspection"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 33vw, 400px"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <Image
+                src="/images/roadside-car-carrier-640w.webp"
+                alt="Car-carrier trailer on a snowy highway shoulder during a roadside assistance call"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 33vw, 400px"
+              />
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Service Area */}
       <section className="bg-concrete px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

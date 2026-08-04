@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/site.config";
 import { PhoneLink } from "@/components/PhoneLink";
 import { JsonLd } from "@/components/JsonLd";
+import reviews from "../../../../content/reviews.json";
 
 interface ServiceFaq {
   question: string;
@@ -13,23 +15,54 @@ interface ServiceFaq {
 interface ServiceContent {
   heading: string;
   intro: string;
+  includes?: string[];
   sections: { title: string; body: string }[];
   cta: string;
   faqs: ServiceFaq[];
 }
 
+const serviceHeaders: Record<string, { src: string; alt: string }> = {
+  "roadside-assistance": {
+    src: "/images/roadside-highway-winter-1280w.webp",
+    alt: "Blue semi truck stopped on a highway shoulder in winter waiting for roadside assistance",
+  },
+  "truck-repair": {
+    src: "/images/axle-brake-repair-1280w.webp",
+    alt: "Axle and air bag suspension repair with brake shoes removed and tools laid out",
+  },
+  "truck-diagnostics": {
+    src: "/images/engine-bay-diagnostics-1280w.webp",
+    alt: "Semi truck with cab tilted forward exposing the engine bay for diagnostics",
+  },
+  "fleet-maintenance": {
+    src: "/images/fleet-yard-maintenance-1280w.webp",
+    alt: "Commercial trucks lined up in a maintenance yard with a mechanic's creeper and tools",
+  },
+};
+
+const serviceReviews: Record<string, string> = {
+  "roadside-assistance": "Maria G",
+  "truck-repair": "D B",
+};
+
 const serviceContent: Record<string, ServiceContent> = {
   "truck-repair": {
     heading: "General Truck Repairs",
     intro: `When your commercial truck needs work — from routine brake jobs to major engine overhauls — ${siteConfig.businessName} has the tools and experience to handle it. We work on the full range of commercial vehicles, and we do it 24 hours a day, Monday through Saturday.`,
+    includes: [
+      "Brake repairs",
+      "Axle repairs",
+      "Radiator repairs",
+      "Air leak repairs",
+    ],
     sections: [
       {
         title: "Engine & Drivetrain",
-        body: "Complete engine diagnostics and repair, transmission service, clutch replacement, and driveline work. We identify the root cause before we start turning wrenches, so you only pay for the repair you actually need.",
+        body: "Complete engine diagnostics and repair, air leak repairs, transmission service, clutch replacement, and driveline work. We identify the root cause before we start turning wrenches, so you only pay for the repair you actually need.",
       },
       {
         title: "Brakes & Suspension",
-        body: "Brake system service including pads, rotors, drums, air brake systems, and ABS diagnostics. Suspension repair covers leaf springs, air ride systems, shock absorbers, and steering components.",
+        body: "Brake system service including pads, rotors, drums, air brake systems, and ABS diagnostics. Axle repairs and suspension work covering leaf springs, air ride systems, shock absorbers, and steering components.",
       },
       {
         title: "Electrical & Cooling Systems",
@@ -142,6 +175,10 @@ const serviceContent: Record<string, ServiceContent> = {
         answer: `Call ${siteConfig.phoneDisplay} and we will help with your breakdown. We offer roadside assistance to get you back on the road, available 24 hours a day, Monday through Saturday.`,
       },
       {
+        question: "Do you come to where the truck broke down?",
+        answer: `Yes. Roadside assistance means we come to you. Call ${siteConfig.phoneDisplay} and we will get to your truck, 24 hours a day, Monday through Saturday.`,
+      },
+      {
         question: "What areas do you cover for roadside service?",
         answer: "We provide roadside assistance in Wyoming, Grand Rapids, and the surrounding West Michigan area.",
       },
@@ -185,6 +222,10 @@ export default function ServiceDetailPage({
   if (!service || !content) {
     notFound();
   }
+
+  const header = serviceHeaders[params.slug];
+  const reviewName = serviceReviews[params.slug];
+  const review = reviewName ? reviews.find((r) => r.name === reviewName) : null;
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -244,42 +285,78 @@ export default function ServiceDetailPage({
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <section className="bg-asphalt px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-content">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 font-body text-sm text-smoke">
-              <li>
-                <Link
-                  href="/"
-                  className="transition-colors duration-200 hover:text-bone"
-                >
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <Link
-                  href="/services"
-                  className="transition-colors duration-200 hover:text-bone"
-                >
-                  Services
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-bone">{service.shortName}</li>
-            </ol>
-          </nav>
-          <h1 className="font-display text-4xl font-bold text-bone sm:text-5xl">
-            {content.heading}
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-smoke leading-relaxed">
-            {content.intro}
-          </p>
+      <section className="relative overflow-hidden bg-asphalt">
+        {header && (
+          <>
+            <Image
+              src={header.src}
+              alt={header.alt}
+              width={1280}
+              height={960}
+              className="absolute inset-0 h-full w-full object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-asphalt/45" />
+          </>
+        )}
+        <div className="relative px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mx-auto max-w-content">
+            <nav aria-label="Breadcrumb" className="mb-6">
+              <ol className="flex items-center gap-2 font-body text-sm text-smoke">
+                <li>
+                  <Link
+                    href="/"
+                    className="transition-colors duration-200 hover:text-bone"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="transition-colors duration-200 hover:text-bone"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li className="text-bone">{service.shortName}</li>
+              </ol>
+            </nav>
+            <h1 className="font-display text-4xl font-bold text-bone sm:text-5xl">
+              {content.heading}
+            </h1>
+            <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-smoke leading-relaxed">
+              {content.intro}
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-content space-y-10">
+          {content.includes && (
+            <div>
+              <h2 className="font-display text-2xl font-bold text-asphalt">
+                Services Include
+              </h2>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {content.includes.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 font-body text-steel"
+                  >
+                    <span
+                      className="block h-1.5 w-1.5 rounded-full bg-safety-amber"
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {content.sections.map((section) => (
             <div key={section.title}>
               <h2 className="font-display text-2xl font-bold text-asphalt">
@@ -292,6 +369,29 @@ export default function ServiceDetailPage({
           ))}
         </div>
       </section>
+
+      {review && (
+        <section className="bg-concrete px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-content">
+            <blockquote className="mx-auto max-w-2xl rounded-lg border border-asphalt bg-asphalt p-6 shadow-sm">
+              <div className="mb-3 flex items-center gap-1" aria-label={`${review.rating} out of 5 stars`}>
+                {Array.from({ length: review.rating }).map((_, j) => (
+                  <span key={j} className="text-safety-amber" aria-hidden="true">
+                    &#9733;
+                  </span>
+                ))}
+              </div>
+              <p className="font-body text-smoke leading-relaxed">
+                &ldquo;{review.text}&rdquo;
+              </p>
+              <footer className="mt-4 font-body text-sm text-bone">
+                <strong>{review.name}</strong>
+                <span className="text-smoke"> — {review.source}</span>
+              </footer>
+            </blockquote>
+          </div>
+        </section>
+      )}
 
       <section className="bg-asphalt px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-content text-center">

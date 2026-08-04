@@ -40,15 +40,15 @@ const serviceContent: Record<string, ServiceContent> = {
     faqs: [
       {
         question: "What types of truck repairs do you handle?",
-        answer: "We handle the full range of commercial truck repairs — engine, transmission, brakes, electrical, suspension, and cooling systems. From minor fixes to major overhauls, we have the tools and experience for it.",
+        answer: "We handle a wide range of commercial truck repairs, from minor fixes to major overhauls. Whatever your truck needs, we have the tools and experience for it.",
       },
       {
         question: "Are you open for truck repairs at night?",
-        answer: `Yes. We are open 24 hours a day, Monday through Saturday. Call ${siteConfig.phoneDisplay} any time and we will get your truck into the shop.`,
+        answer: `Yes. We are open 24 hours a day, Monday through Saturday. Call ${siteConfig.phoneDisplay} any time and we will get to work on your truck.`,
       },
       {
-        question: "What size trucks do you work on?",
-        answer: "We work on the full range of commercial trucks, from box trucks and delivery vans to full-size semis.",
+        question: "Do you work on commercial trucks?",
+        answer: "Yes. We are a commercial truck repair specialist and handle the full range of truck repairs, from minor fixes to major overhauls.",
       },
     ],
   },
@@ -73,15 +73,15 @@ const serviceContent: Record<string, ServiceContent> = {
     faqs: [
       {
         question: "How do you diagnose truck problems?",
-        answer: "We use advanced diagnostic technology to read fault codes from your truck's onboard computer systems and test engine performance. This pinpoints the exact problem so we fix only what needs fixing.",
+        answer: "We use advanced diagnostic technology and expert knowledge to pinpoint problems with precision, so you only pay for what actually needs fixing.",
       },
       {
         question: "Will I pay for repairs I don't need?",
         answer: "No. We identify the root cause before we start any work. If a requested repair is not necessary, we will tell you and recommend what actually needs to be done.",
       },
       {
-        question: "Do you do pre-purchase truck inspections?",
-        answer: "Yes. We perform a thorough mechanical and electronic inspection to identify existing problems and estimate remaining service life on major components before you buy.",
+        question: "When can I bring my truck in for diagnostics?",
+        answer: `We are available for diagnostics 24 hours a day, Monday through Saturday. Call ${siteConfig.phoneDisplay} and we will pinpoint the problem.`,
       },
     ],
   },
@@ -105,16 +105,16 @@ const serviceContent: Record<string, ServiceContent> = {
     cta: "Keep your fleet running — call to set up a maintenance plan.",
     faqs: [
       {
-        question: "What does a fleet maintenance program include?",
-        answer: "Our programs include scheduled oil changes, fluid checks, belt and hose inspections, brake adjustments, and comprehensive multi-point inspections. We tailor the schedule to your fleet's operating conditions.",
+        question: "What is fleet maintenance for?",
+        answer: "Fleet maintenance keeps your vehicles operating efficiently and helps prevent breakdowns before they happen. Call us to discuss a program for your fleet.",
       },
       {
         question: "Can I bring trucks in for maintenance outside business hours?",
         answer: "Yes. We are open 24 hours a day, Monday through Saturday. Bring trucks in during off-hours so maintenance never costs you a day of hauling.",
       },
       {
-        question: "Why is preventive maintenance important for my fleet?",
-        answer: "Preventive maintenance catches problems before they strand a driver on the road. Regular service keeps your trucks in peak condition, extends their service life, and avoids costly emergency breakdowns.",
+        question: "When are you available for fleet maintenance?",
+        answer: `We are available 24 hours a day, Monday through Saturday. Call ${siteConfig.phoneDisplay} any time to schedule maintenance around your fleet's needs.`,
       },
     ],
   },
@@ -139,15 +139,15 @@ const serviceContent: Record<string, ServiceContent> = {
     faqs: [
       {
         question: "What happens when I call for roadside assistance?",
-        answer: `Call ${siteConfig.phoneDisplay} and we dispatch a technician to your breakdown location with the tools and common parts needed for on-site repair. Many roadside repairs can be completed without towing.`,
+        answer: `Call ${siteConfig.phoneDisplay} and we will help with your breakdown. We offer roadside assistance to get you back on the road, available 24 hours a day, Monday through Saturday.`,
       },
       {
         question: "What areas do you cover for roadside service?",
-        answer: `We provide roadside assistance throughout ${siteConfig.serviceAreas.join(", ")}, and the surrounding West Michigan area.`,
+        answer: "We provide roadside assistance in Wyoming, Grand Rapids, and the surrounding West Michigan area.",
       },
       {
         question: "Are you available for roadside emergencies at night?",
-        answer: "Yes. Our roadside assistance is available 24 hours a day, Monday through Saturday. Day or night, we respond fast to get you moving again.",
+        answer: `Yes. Our roadside assistance is available 24 hours a day, Monday through Saturday. Day or night, call ${siteConfig.phoneDisplay} when you need help on the road.`,
       },
     ],
   },

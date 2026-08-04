@@ -12,19 +12,19 @@ const homeFaqs = [
   },
   {
     question: "Where is Big Bear Truck Repair located?",
-    answer: `We are based in ${siteConfig.city}, Michigan and serve the greater Grand Rapids and West Michigan area. We also provide roadside assistance throughout the region.`,
+    answer: `We are based in ${siteConfig.city}, Michigan. We serve Wyoming, Grand Rapids, and the surrounding West Michigan area.`,
   },
   {
     question: "What kind of trucks do you work on?",
-    answer: "We work on the full range of commercial trucks, from box trucks and delivery vans to full-size semis. Our services cover engine, transmission, brakes, electrical, suspension, and cooling systems.",
+    answer: "We are a commercial truck repair specialist. We handle a wide range of truck repairs, from minor fixes to major overhauls.",
   },
   {
     question: "Do you offer roadside assistance?",
-    answer: `Yes. If your truck breaks down on the road, call ${siteConfig.phoneDisplay} and we will dispatch a technician with the tools and parts to get you moving again. Available 24 hours, Monday through Saturday.`,
+    answer: `Yes. We offer roadside assistance when breakdowns happen on the road. Call ${siteConfig.phoneDisplay} — we are available 24 hours a day, Monday through Saturday.`,
   },
   {
-    question: "How do I schedule service or get a repair?",
-    answer: `Call us at ${siteConfig.phoneDisplay} any time we are open — 24 hours, Monday through Saturday. No appointment needed for most repairs. We also offer scheduled fleet maintenance programs.`,
+    question: "How do I get a repair?",
+    answer: `Call us at ${siteConfig.phoneDisplay} any time we are open — 24 hours a day, Monday through Saturday. We also offer fleet maintenance to keep your vehicles operating efficiently.`,
   },
 ];
 

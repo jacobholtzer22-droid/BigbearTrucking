@@ -1,101 +1,260 @@
-import Image from "next/image";
+import { PhoneLink } from "@/components/PhoneLink";
+import { siteConfig } from "@/site.config";
+import { JsonLd } from "@/components/JsonLd";
+import { Wrench, ScanSearch, Truck, Clock, MapPin } from "lucide-react";
+import Link from "next/link";
+import reviews from "../../content/reviews.json";
+
+const homeFaqs = [
+  {
+    question: "What are your hours of operation?",
+    answer: `We are open 24 hours a day, Monday through Saturday. Sunday we are closed. Whether your truck breaks down at 2 PM or 2 AM, call ${siteConfig.phoneDisplay} and we will get to work.`,
+  },
+  {
+    question: "Where is Big Bear Truck Repair located?",
+    answer: `We are based in ${siteConfig.city}, Michigan and serve the greater Grand Rapids and West Michigan area. We also provide roadside assistance throughout the region.`,
+  },
+  {
+    question: "What kind of trucks do you work on?",
+    answer: "We work on the full range of commercial trucks, from box trucks and delivery vans to full-size semis. Our services cover engine, transmission, brakes, electrical, suspension, and cooling systems.",
+  },
+  {
+    question: "Do you offer roadside assistance?",
+    answer: `Yes. If your truck breaks down on the road, call ${siteConfig.phoneDisplay} and we will dispatch a technician with the tools and parts to get you moving again. Available 24 hours, Monday through Saturday.`,
+  },
+  {
+    question: "How do I schedule service or get a repair?",
+    answer: `Call us at ${siteConfig.phoneDisplay} any time we are open — 24 hours, Monday through Saturday. No appointment needed for most repairs. We also offer scheduled fleet maintenance programs.`,
+  },
+];
+
+const serviceIcons = [Wrench, ScanSearch, Truck, Clock];
+
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <JsonLd data={homeFaqSchema} />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero */}
+      <section className="bg-asphalt px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
+        <div className="mx-auto max-w-content text-center">
+          <h1 className="font-display text-4xl font-bold leading-tight text-bone sm:text-5xl lg:text-6xl">
+            24-Hour Truck Repair
+            <br />
+            <span className="text-safety-amber">
+              in {siteConfig.city}, {siteConfig.state}
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-smoke sm:text-xl">
+            Commercial truck breakdowns don&apos;t wait for business hours.
+            Neither do we. Call Big Bear for fast, honest repairs — Monday
+            through Saturday, any hour.
+          </p>
+          <div className="mt-10">
+            <PhoneLink size="xl" className="text-safety-amber" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Why Big Bear */}
+      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <h2 className="text-center font-display text-3xl font-bold text-asphalt sm:text-4xl">
+            Why Truckers Trust Big Bear
+          </h2>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg border border-bone bg-white p-6 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-safety-amber/10">
+                <Clock size={24} className="text-safety-amber" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-asphalt">
+                Open When You Need Us
+              </h3>
+              <p className="mt-2 font-body text-steel">
+                24-hour service, Monday through Saturday. Whether it&apos;s 2
+                PM or 2 AM, we answer the phone and get to work.
+              </p>
+            </div>
+            <div className="rounded-lg border border-bone bg-white p-6 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-safety-amber/10">
+                <Wrench size={24} className="text-safety-amber" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-asphalt">
+                Honest Diagnostics
+              </h3>
+              <p className="mt-2 font-body text-steel">
+                We fix what needs fixing — nothing more. If the repair
+                isn&apos;t necessary, we&apos;ll tell you before we touch a
+                wrench.
+              </p>
+            </div>
+            <div className="rounded-lg border border-bone bg-white p-6 shadow-sm sm:col-span-2 lg:col-span-1">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-safety-amber/10">
+                <Truck size={24} className="text-safety-amber" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-asphalt">
+                Commercial Truck Experts
+              </h3>
+              <p className="mt-2 font-body text-steel">
+                From box trucks to semis, we have the tools and experience for
+                the full range of commercial truck repairs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="bg-concrete px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <h2 className="text-center font-display text-3xl font-bold text-bone sm:text-4xl">
+            Our Services
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {siteConfig.services.map((service, i) => {
+              const Icon = serviceIcons[i];
+              return (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="group rounded-lg border border-asphalt bg-asphalt p-6 transition-colors duration-200 hover:border-safety-amber"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-safety-amber/10">
+                    <Icon
+                      size={20}
+                      className="text-safety-amber"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-bone group-hover:text-safety-amber">
+                    {service.name}
+                  </h3>
+                  <p className="mt-2 font-body text-sm text-smoke">
+                    {service.description}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/services"
+              className="inline-block rounded-lg bg-safety-amber px-6 py-3 font-display font-bold text-asphalt transition-opacity duration-200 hover:opacity-90"
+            >
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Review */}
+      {reviews.length > 0 && (
+        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mx-auto max-w-content">
+            <h2 className="text-center font-display text-3xl font-bold text-asphalt sm:text-4xl">
+              What Our Customers Say
+            </h2>
+            <div className="mx-auto mt-10 max-w-2xl">
+              {reviews.map((review) => (
+                <blockquote
+                  key={review.name}
+                  className="rounded-lg border border-bone bg-white p-6 shadow-sm"
+                >
+                  <div className="mb-3 flex items-center gap-1" aria-label={`${review.rating} out of 5 stars`}>
+                    {Array.from({ length: review.rating }).map((_, j) => (
+                      <span key={j} className="text-safety-amber" aria-hidden="true">
+                        &#9733;
+                      </span>
+                    ))}
+                  </div>
+                  <p className="font-body text-steel leading-relaxed">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <footer className="mt-4 font-body text-sm text-asphalt">
+                    <strong>{review.name}</strong>
+                    <span className="text-smoke"> — {review.source}</span>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Service Area */}
+      <section className="bg-concrete px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content text-center">
+          <h2 className="font-display text-3xl font-bold text-bone sm:text-4xl">
+            Serving West Michigan
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-smoke">
+            {siteConfig.businessName} is based in {siteConfig.city}, Michigan
+            and provides 24-hour commercial truck repair throughout the greater
+            Grand Rapids and West Michigan area.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {siteConfig.serviceAreas.map((area) => (
+              <span
+                key={area}
+                className="inline-flex items-center gap-2 rounded-lg border border-asphalt bg-asphalt px-4 py-2 font-body text-bone"
+              >
+                <MapPin size={16} className="text-safety-amber" aria-hidden="true" />
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content">
+          <h2 className="text-center font-display text-3xl font-bold text-asphalt sm:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <dl className="mx-auto mt-10 max-w-3xl divide-y divide-bone">
+            {homeFaqs.map((faq) => (
+              <div key={faq.question} className="py-6">
+                <dt className="font-display text-lg font-bold text-asphalt">
+                  {faq.question}
+                </dt>
+                <dd className="mt-2 font-body text-steel leading-relaxed">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="bg-asphalt px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-content text-center">
+          <h2 className="font-display text-3xl font-bold text-bone sm:text-4xl">
+            Truck Trouble? Call Now.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl font-body text-lg text-smoke">
+            Don&apos;t wait for the shop to open. {siteConfig.businessName} is
+            available 24 hours a day, Monday through Saturday.
+          </p>
+          <div className="mt-8">
+            <PhoneLink size="xl" className="text-safety-amber" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

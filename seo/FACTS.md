@@ -72,9 +72,9 @@ Only publicly verifiable reviews from named platforms go here. These are safe to
 - **Badge:** "First to Review"
 - **Text:** "Eduardo at Big Bear provided a great service to my Chevy box truck. Upon taking the wheels off to do the requested brake job, he noticed that the original requested service was not required, and provided an honest recommendation of what to do next. Fixed the root cause of my issue without unnecessary extras. Great honest guy."
 
-### Google Business Profile reviews
+### Google Business Profile reviews (verified 2026-08-04)
 
-GBP exists but rating, review count, and review text are unknown. TODO: read reviews from the profile and add verified ones here.
+GBP rating: 5.0 across 13 reviews. 9 reviews have text (all published in content/reviews.json); 4 are star-only (Antonio Bernal, Eric Brown, Nancy Gutierrez, Spencer Haydo — excluded). Spencer Haydo's Google review is the same person as Spencer H. on Yelp; only the Yelp entry is published to avoid padding.
 
 ---
 
@@ -124,10 +124,16 @@ The photo captions suggest work on brake rotors, drive shafts, mufflers, electri
 - **Facebook:** facebook.com/Bigbeartruckrepair1
 - **Yelp:** yelp.com/biz/big-bear-truck-repair-grand-rapids
 
-## Google Business Profile
+## Google Business Profile (verified 2026-08-04)
 
-- A GBP EXISTS but does not surface in Google Places API text search.
-- Rating, review count, and whether it publishes a street address are unknown.
+- Rating: 5.0, 13 reviews (9 with text, 4 star-only)
+- Primary category: Mechanic
+- Address: Hidden (service-area business). Service area: "Wyoming and nearby areas"
+- Website URL: NOT published on GBP
+- Payments: Credit cards and Debit cards
+- 17 photos (downloaded and verified — see seo/GBP-PHOTO-SOURCES.md)
+- Does not surface in Google Places API text search
+- See "First-party GBP facts" section below for full details
 
 ## Old Site Technical Notes
 
@@ -155,7 +161,7 @@ These must be confirmed before the corresponding facts can appear on the site:
 
 - [ ] **Street address:** Does the business have a shop customers visit? Does Eduardo want the address published on the site and in schema.org?
 - [ ] **Owner name/bio:** Confirm "Eduardo" is the owner. Full name? Does he want to be featured on the About page with a photo?
-- [ ] **Mobile service:** Does Big Bear do mobile/on-site truck repair? If yes, what is the service radius?
+- [x] **Mobile service:** CONFIRMED via GBP description ("Roadside Assistance") and multiple Google reviews describing road calls.
 - [ ] **Trailer repair:** Does the shop work on trailers? (Yelp photos suggest yes)
 - [ ] **DOT inspections:** Does the business perform DOT inspections?
 - [ ] **Tire service:** Does the shop do tire replacement/repair?
@@ -163,12 +169,55 @@ These must be confirmed before the corresponding facts can appear on the site:
 - [ ] **Diesel engine work:** Any specific diesel engine specialties?
 - [ ] **Makes handled:** What truck makes/models? (Freightliner, Peterbilt, Kenworth, International, etc.)
 - [ ] **Service area cities:** Exact list of cities served beyond "Wyoming, Grand Rapids, West Michigan"
-- [ ] **Google Business Profile:** Verify it: verification status, primary category (should be "Truck repair shop"), service-area settings, services list, hours, photos, website field. Read and record all reviews.
+- [x] **Google Business Profile:** Verified 2026-08-04. Primary category "Mechanic" (not "Truck repair shop"). Service area "Wyoming and nearby areas". No website URL. Address hidden. 17 photos. 13 reviews (9 with text, 4 star-only). See "First-party GBP facts" section below.
 - [ ] **Domain control:** Who controls bigbeartruckrepair.com? Need DNS access to point at Vercel.
 - [ ] **Old-site testimonials:** Confirm authenticity of John M., Jeniffer R., Harry T., Carl O. reviews. If real, which platform are they from?
 - [ ] **Photos:** Any shop photos, truck photos, team photos, or action shots for the site?
 - [ ] **Certifications:** ASE certified? Any manufacturer certifications?
 - [ ] **Years in business / founding year:** When did the business start?
 - [ ] **Insurance/bonding:** Any relevant credentials to mention?
-- [ ] **Credit cards:** Yelp says "Accepts credit cards" — confirm this for the site.
+- [x] **Credit cards:** CONFIRMED via GBP. Accepts credit cards and debit cards.
 - [ ] **Specific repair services:** Confirm whether to advertise engine, transmission, brake, and electrical repair as named services. Yelp photo captions suggest this work is done, but they are circumstantial. Once confirmed, the truck-repair meta description can be enriched.
+
+---
+
+## First-party GBP facts (verified profile, extracted 2026-08-04)
+
+### GBP Business Description (verbatim)
+
+> "Big Bear Truck Repair is a Mechanic located in Wyoming, MI. We offer Roadside Assistance, Truck Repair, Fleet Maintenance, Engine Diagnostics, Axle Repairs, Radiator Repairs, and other Truck Mechanical Services. As the premier truck repair service provider in Wyoming, MI, Big Bear Truck Repair is dedicated to maintaining the performance and reliability of your fleet. We recognize that efficient operations are crucial for your business, which is why our team of experienced technicians is equipped to handle a variety of services, from fleet maintenance to emergency truck repair. Contact us today for more information and services!"
+
+**Note:** Marketing phrasing is recycled template copy ("premier provider" etc.) — service NOUNS only are Tier 1 (publishable): Roadside Assistance, Truck Repair, Fleet Maintenance, Engine Diagnostics, Axle Repairs, Radiator Repairs.
+
+### Owner Posts (both dated Jul 22, 2026)
+
+- "We do Airleak Repairs & much more give us a call today!"
+- "Brakes"
+
+### GBP Profile State
+
+- **Rating:** 5.0
+- **Review count:** 13 Google reviews
+- **Primary category:** Mechanic
+- **Website URL:** NOT published on GBP
+- **Address:** Hidden (service-area business)
+- **Service area:** "Areas served: Wyoming and nearby areas"
+- **Payments:** Credit cards and Debit cards
+
+### Competitive Position
+
+- "Bear Truck Repair INC" (4.9, 17 reviews) holds position 1 on this business's own name search
+- This business is absent from "truck repair Wyoming MI" (~40 results) and "mechanic Wyoming MI" (~32 results)
+
+### Tier 2 Evidence from Reviews (FACTS.md only, never site copy)
+
+- Volvo VNL 860 trans cooler coolant repair (D B review)
+- Semi work across multiple reviews
+- Battery road call under 30 minutes (Rosie Bernal review)
+- Customer reach described as "southwest Michigan" (Veronica Ceja review)
+
+### Status Updates to TODOs
+
+- [x] **Mobile/roadside service:** CONFIRMED (Tier 1). GBP description says "Roadside Assistance"; multiple reviews describe road calls (Maria G, Rosie Bernal, Veronica Ceja).
+- [x] **Google Business Profile reviews:** 9 publishable text reviews + 4 star-only (Antonio Bernal, Eric Brown, Nancy Gutierrez, Spencer Haydo). Spencer Haydo's Google review excluded from reviews.json (same person as Spencer H. Yelp entry). See content/reviews.json.
+- [x] **Credit cards:** CONFIRMED via GBP. Accepts credit cards and debit cards.

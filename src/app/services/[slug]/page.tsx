@@ -48,7 +48,7 @@ const serviceContent: Record<string, ServiceContent> = {
       },
       {
         question: "Do you work on commercial trucks?",
-        answer: "Yes. We are a commercial truck repair specialist and handle the full range of truck repairs, from minor fixes to major overhauls.",
+        answer: "Yes. We are a commercial truck repair specialist. We work on trucks of all sizes, including box trucks, and handle everything from minor fixes to major overhauls.",
       },
     ],
   },
@@ -109,8 +109,8 @@ const serviceContent: Record<string, ServiceContent> = {
         answer: "Fleet maintenance keeps your vehicles operating efficiently and helps prevent breakdowns before they happen. Call us to discuss a program for your fleet.",
       },
       {
-        question: "Can I bring trucks in for maintenance outside business hours?",
-        answer: "Yes. We are open 24 hours a day, Monday through Saturday. Bring trucks in during off-hours so maintenance never costs you a day of hauling.",
+        question: "Can fleet maintenance happen outside normal working hours?",
+        answer: "Yes. We are open 24 hours a day, Monday through Saturday, so maintenance can be scheduled around your fleet's routes instead of costing you hauling time.",
       },
       {
         question: "When are you available for fleet maintenance?",

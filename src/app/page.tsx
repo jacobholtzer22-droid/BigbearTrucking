@@ -24,7 +24,7 @@ const homeFaqs = [
   },
   {
     question: "How do I get a repair?",
-    answer: `Call us at ${siteConfig.phoneDisplay} any time we are open — 24 hours a day, Monday through Saturday. We also offer fleet maintenance to keep your vehicles operating efficiently.`,
+    answer: `Call us at ${siteConfig.phoneDisplay} any time we are open — 24 hours a day, Monday through Saturday.`,
   },
 ];
 

@@ -37,7 +37,7 @@ export const siteConfig = {
       name: "General Truck Repairs",
       shortName: "Truck Repair",
       description: "From minor fixes to major overhauls, we handle the full range of commercial truck repairs to keep your fleet on the road.",
-      metaDescription: "24-hour commercial truck repair in Wyoming, MI. Engine, transmission, brakes, and electrical done right. Call Big Bear Truck Repair at (616) 329-0848.",
+      metaDescription: "24-hour commercial truck repair in Wyoming, MI. We handle everything from minor fixes to major overhauls. Call Big Bear Truck Repair at (616) 329-0848.",
     },
     {
       slug: "truck-diagnostics",
@@ -59,7 +59,7 @@ export const siteConfig = {
       shortName: "Roadside Assistance",
       metaTitle: "Roadside Assistance",
       description: "Broken down on the road? We respond fast with the tools and expertise to get you moving again, day or night.",
-      metaDescription: "24-hour roadside truck repair serving Wyoming and Grand Rapids, MI. Broke down? Big Bear dispatches fast with parts and tools. Call (616) 329-0848.",
+      metaDescription: "24-hour roadside assistance for commercial trucks in Wyoming, Grand Rapids, and West Michigan. Broke down? Call Big Bear at (616) 329-0848 any day Mon-Sat.",
     },
   ],
 } as const;

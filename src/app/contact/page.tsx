@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: `Contact — Truck Repair in ${siteConfig.city}`,
+  title: `Contact | Truck Repair in ${siteConfig.city}`,
   description: `Contact ${siteConfig.businessName} for 24-hour commercial truck repair in ${siteConfig.city}, ${siteConfig.state}. Call ${siteConfig.phoneDisplay} any time Monday through Saturday, or send a message.`,
   alternates: { canonical: "./" },
 };

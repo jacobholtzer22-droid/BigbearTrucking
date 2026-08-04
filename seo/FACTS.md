@@ -171,3 +171,4 @@ These must be confirmed before the corresponding facts can appear on the site:
 - [ ] **Years in business / founding year:** When did the business start?
 - [ ] **Insurance/bonding:** Any relevant credentials to mention?
 - [ ] **Credit cards:** Yelp says "Accepts credit cards" — confirm this for the site.
+- [ ] **Specific repair services:** Confirm whether to advertise engine, transmission, brake, and electrical repair as named services. Yelp photo captions suggest this work is done, but they are circumstantial. Once confirmed, the truck-repair meta description can be enriched.

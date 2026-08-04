@@ -4,7 +4,7 @@ import { siteConfig } from "@/site.config";
 import { PhoneLink } from "@/components/PhoneLink";
 
 export const metadata: Metadata = {
-  title: `About — Truck Repair in ${siteConfig.city}, ${siteConfig.state}`,
+  title: `About | Truck Repair in ${siteConfig.city}, ${siteConfig.state}`,
   description: `${siteConfig.businessName} is a 24-hour commercial truck repair shop in ${siteConfig.city}, ${siteConfig.state}. Honest diagnostics, around-the-clock service, Monday through Saturday.`,
   alternates: { canonical: "./" },
 };

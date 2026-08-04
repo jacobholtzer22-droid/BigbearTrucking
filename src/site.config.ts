@@ -1,0 +1,67 @@
+export const siteConfig = {
+  businessName: "Big Bear Truck Repair",
+  legalName: "Big Bear Truck Repair Inc.",
+  url: "https://www.bigbeartruckrepair.com",
+  phoneDisplay: "(616) 329-0848",
+  phoneE164: "+16163290848",
+  email: "bigbeartruckrepair@gmail.com",
+  city: "Wyoming",
+  state: "MI",
+  zip: "49519",
+  tagline: "Rain, sleet, or snow we keep you on the go 24 hours a day.",
+  serviceAreas: [
+    "Wyoming",
+    "Grand Rapids",
+    "West Michigan",
+  ],
+  hours: {
+    monday: { open: "00:00", close: "23:59", closed: false },
+    tuesday: { open: "00:00", close: "23:59", closed: false },
+    wednesday: { open: "00:00", close: "23:59", closed: false },
+    thursday: { open: "00:00", close: "23:59", closed: false },
+    friday: { open: "00:00", close: "23:59", closed: false },
+    saturday: { open: "00:00", close: "23:59", closed: false },
+    sunday: { open: "00:00", close: "00:00", closed: true },
+  },
+  hoursDisplay: "24-hour service, Monday through Saturday",
+  sameAs: [
+    "https://www.facebook.com/Bigbeartruckrepair1",
+    "https://www.yelp.com/biz/big-bear-truck-repair-grand-rapids",
+  ],
+  contactEndpoint: "/api/contact",
+  ownerEmailEnvKey: "CONTACT_TO_EMAIL",
+  bccEmailEnvKey: "CONTACT_BCC_EMAIL",
+  services: [
+    {
+      slug: "truck-repair",
+      name: "General Truck Repairs",
+      shortName: "Truck Repair",
+      description: "From minor fixes to major overhauls, we handle the full range of commercial truck repairs to keep your fleet on the road.",
+      metaDescription: "24-hour commercial truck repair in Wyoming, MI. Engine, transmission, brakes, and electrical — done right. Call Big Bear at (616) 329-0848.",
+    },
+    {
+      slug: "truck-diagnostics",
+      name: "Truck Diagnostics",
+      shortName: "Diagnostics",
+      description: "Advanced diagnostic technology and expert knowledge to pinpoint problems with precision, so you only pay for what needs fixing.",
+      metaDescription: "Expert truck diagnostics in Wyoming, MI. We pinpoint the real problem so you only pay for what needs fixing. Call Big Bear at (616) 329-0848.",
+    },
+    {
+      slug: "fleet-maintenance",
+      name: "Fleet Maintenance",
+      shortName: "Fleet Maintenance",
+      description: "Proactive maintenance programs designed to keep your trucks in peak condition and prevent breakdowns before they happen.",
+      metaDescription: "Fleet maintenance in Wyoming, MI. Scheduled service keeps your trucks running and prevents costly breakdowns. Call Big Bear at (616) 329-0848.",
+    },
+    {
+      slug: "roadside-assistance",
+      name: "Roadside Assistance & Emergency Repair",
+      shortName: "Roadside Assistance",
+      metaTitle: "Roadside Assistance",
+      description: "Broken down on the road? We respond fast with the tools and expertise to get you moving again, day or night.",
+      metaDescription: "24-hour roadside truck repair serving Wyoming and Grand Rapids, MI. Broke down? Big Bear dispatches fast with parts and tools. Call (616) 329-0848.",
+    },
+  ],
+} as const;
+
+export type SiteConfig = typeof siteConfig;

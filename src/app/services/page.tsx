@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/site.config";
 import { PhoneLink } from "@/components/PhoneLink";
 import { Wrench, ScanSearch, Truck, Clock } from "lucide-react";
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
 };
 
 const serviceIcons = [Wrench, ScanSearch, Truck, Clock];
+
+const serviceCardImages = [
+  { src: "/images/card-truck-repair-768w.webp", alt: "Brake rotor and hub with wheel removed for truck brake repair" },
+  { src: "/images/card-diagnostics-768w.webp", alt: "PACCAR engine compartment with coolant reservoir and alternator during diagnostics" },
+  { src: "/images/card-fleet-768w.webp", alt: "White Ford F-650 box truck in a commercial parking lot" },
+  { src: "/images/hero-roadside-snow-768w.webp", alt: "Red semi cab on a snowy highway shoulder waiting for roadside repair" },
+];
 
 const serviceDetails: Record<
   string,
@@ -75,48 +83,60 @@ export default function ServicesPage() {
           {siteConfig.services.map((service, i) => {
             const Icon = serviceIcons[i];
             const details = serviceDetails[service.slug];
+            const cardImg = serviceCardImages[i];
             return (
               <div
                 key={service.slug}
-                className="rounded-lg border border-bone bg-white p-6 shadow-sm sm:p-8"
+                className="overflow-hidden rounded-lg border border-bone bg-white shadow-sm"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-safety-amber/10">
-                    <Icon
-                      size={24}
-                      className="text-safety-amber"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="font-display text-2xl font-bold text-asphalt sm:text-3xl">
-                      {service.name}
-                    </h2>
-                    <p className="mt-2 font-body text-steel leading-relaxed">
-                      {service.description}
-                    </p>
-                    {details && (
-                      <ul className="mt-4 space-y-2">
-                        {details.bullets.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="flex items-start gap-2 font-body text-sm text-steel"
-                          >
-                            <span
-                              className="mt-1 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-safety-amber"
-                              aria-hidden="true"
-                            />
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="mt-4 inline-block font-display text-sm font-bold text-dark-amber transition-colors duration-200 hover:text-safety-amber"
-                    >
-                      Learn more &rarr;
-                    </Link>
+                <div className="relative aspect-[3/1] overflow-hidden">
+                  <Image
+                    src={cardImg.src}
+                    alt={cardImg.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
+                </div>
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-safety-amber/10">
+                      <Icon
+                        size={24}
+                        className="text-safety-amber"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div>
+                      <h2 className="font-display text-2xl font-bold text-asphalt sm:text-3xl">
+                        {service.name}
+                      </h2>
+                      <p className="mt-2 font-body text-steel leading-relaxed">
+                        {service.description}
+                      </p>
+                      {details && (
+                        <ul className="mt-4 space-y-2">
+                          {details.bullets.map((bullet) => (
+                            <li
+                              key={bullet}
+                              className="flex items-start gap-2 font-body text-sm text-steel"
+                            >
+                              <span
+                                className="mt-1 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-safety-amber"
+                                aria-hidden="true"
+                              />
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="mt-4 inline-block font-display text-sm font-bold text-dark-amber transition-colors duration-200 hover:text-safety-amber"
+                      >
+                        Learn more &rarr;
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

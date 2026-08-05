@@ -31,6 +31,13 @@ const homeFaqs = [
 
 const serviceIcons = [Wrench, ScanSearch, Truck, Clock];
 
+const serviceCardImages = [
+  { src: "/images/card-truck-repair-768w.webp", alt: "Brake rotor and hub with wheel removed for truck brake repair" },
+  { src: "/images/card-diagnostics-768w.webp", alt: "PACCAR engine compartment with coolant reservoir and alternator during diagnostics" },
+  { src: "/images/card-fleet-768w.webp", alt: "White Ford F-650 box truck in a commercial parking lot" },
+  { src: "/images/hero-roadside-snow-768w.webp", alt: "Red semi cab on a snowy highway shoulder waiting for roadside repair" },
+];
+
 const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -52,15 +59,15 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-asphalt">
         <Image
-          src="/images/hero-roadside-snow-1920w.webp"
-          alt="Red semi cab pulled over on a snowy highway shoulder during a roadside repair call"
-          width={1645}
-          height={2193}
+          src="/images/hero-trucks-warehouse-1920w.webp"
+          alt="Red semi cab and white box truck parked at a warehouse with roll-up doors"
+          width={1920}
+          height={1076}
           priority
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-asphalt/45" />
+        <div className="absolute inset-0 bg-asphalt/50" />
         <div className="relative px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
           <div className="mx-auto max-w-content text-center">
             <h1 className="font-display text-4xl font-bold leading-tight text-bone sm:text-5xl lg:text-6xl">
@@ -139,25 +146,37 @@ export default function Home() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {siteConfig.services.map((service, i) => {
               const Icon = serviceIcons[i];
+              const cardImg = serviceCardImages[i];
               return (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group rounded-lg border border-asphalt bg-asphalt p-6 transition-colors duration-200 hover:border-safety-amber"
+                  className="group overflow-hidden rounded-lg border border-asphalt bg-asphalt transition-colors duration-200 hover:border-safety-amber"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-safety-amber/10">
-                    <Icon
-                      size={20}
-                      className="text-safety-amber"
-                      aria-hidden="true"
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={cardImg.src}
+                      alt={cardImg.alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-bone group-hover:text-safety-amber">
-                    {service.name}
-                  </h3>
-                  <p className="mt-2 font-body text-sm text-smoke">
-                    {service.description}
-                  </p>
+                  <div className="p-6">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-safety-amber/10">
+                      <Icon
+                        size={20}
+                        className="text-safety-amber"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-bone group-hover:text-safety-amber">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 font-body text-sm text-smoke">
+                      {service.description}
+                    </p>
+                  </div>
                 </Link>
               );
             })}
@@ -227,8 +246,8 @@ export default function Home() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <Image
-                src="/images/brake-rotor-hub-640w.webp"
-                alt="Truck brake rotor and wheel hub with the wheel removed for inspection"
+                src="/images/red-kenworth-snow-640w.webp"
+                alt="Red Kenworth T880 with cab tilted forward exposing the Cummins engine in snow"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 33vw, 400px"

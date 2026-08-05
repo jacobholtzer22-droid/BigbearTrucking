@@ -29,8 +29,7 @@ export const siteConfig = {
     "https://www.yelp.com/biz/big-bear-truck-repair-grand-rapids",
   ],
   contactEndpoint: "/api/contact",
-  ownerEmailEnvKey: "CONTACT_TO_EMAIL",
-  bccEmailEnvKey: "CONTACT_BCC_EMAIL",
+  crmBusinessSlug: "big-bear-truck-repair",
   services: [
     {
       slug: "truck-repair",

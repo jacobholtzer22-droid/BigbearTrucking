@@ -6,7 +6,7 @@ import { PhoneLink } from "@/components/PhoneLink";
 
 export const metadata: Metadata = {
   title: `About | Truck Repair in ${siteConfig.city}, ${siteConfig.state}`,
-  description: `${siteConfig.businessName} is a 24-hour commercial truck repair shop based in ${siteConfig.city}, MI, serving all of Michigan. Honest diagnostics, around-the-clock service, Monday through Saturday.`,
+  description: `${siteConfig.businessName} is a 24-hour commercial truck repair shop based in ${siteConfig.city}, MI, serving all of West Michigan. Honest diagnostics, around-the-clock service, Monday through Saturday.`,
   alternates: { canonical: "./" },
 };
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
             <p>
               {siteConfig.businessName} is a commercial truck repair shop based
               in {siteConfig.city}, Michigan, serving customers across the
-              entire state. We work on commercial trucks of all sizes
+              West Michigan area. We work on commercial trucks of all sizes
               — from box trucks and delivery vans to full-size semis and
               trailers.
             </p>
@@ -131,9 +131,9 @@ export default function AboutPage() {
           </h2>
           <p className="mt-4 max-w-2xl font-body text-steel leading-relaxed">
             {siteConfig.businessName} is based in {siteConfig.city}, Michigan
-            and serves customers across the entire state. Whether your truck
-            breaks down in Grand Rapids, Detroit, Lansing, or anywhere in
-            between, we will get to you.
+            and serves customers across all of West Michigan. Whether your
+            truck breaks down in Grand Rapids, Kalamazoo, Muskegon, or
+            anywhere in between, we will get to you.
           </p>
         </div>
       </section>

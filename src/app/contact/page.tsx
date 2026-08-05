@@ -6,7 +6,7 @@ import { Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Contact | Truck Repair in ${siteConfig.city}`,
-  description: `Contact ${siteConfig.businessName} for 24-hour commercial truck repair across Michigan. Call ${siteConfig.phoneDisplay} any time Monday through Saturday, or send a message.`,
+  description: `Contact ${siteConfig.businessName} for 24-hour commercial truck repair across West Michigan. Call ${siteConfig.phoneDisplay} any time Monday through Saturday, or send a message.`,
   alternates: { canonical: "./" },
 };
 
@@ -71,7 +71,7 @@ export default function ContactPage() {
                       className="mt-0.5 flex-shrink-0"
                       aria-hidden="true"
                     />
-                    Based in {siteConfig.city}, MI — serving all of Michigan
+                    Based in {siteConfig.city}, MI — serving all of West Michigan
                   </p>
                 </div>
 

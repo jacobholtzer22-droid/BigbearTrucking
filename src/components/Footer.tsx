@@ -62,7 +62,7 @@ export function Footer() {
               Service Area
             </p>
             <p className="mt-3 font-body text-sm text-smoke">
-              Based in {siteConfig.city}, MI — serving all of Michigan
+              Based in {siteConfig.city}, MI — serving all of West Michigan
             </p>
             <div className="mt-4 flex gap-4">
               {siteConfig.sameAs.map((url) => {

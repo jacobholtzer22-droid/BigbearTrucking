@@ -164,8 +164,8 @@ const serviceContent: Record<string, ServiceContent> = {
         body: "From electrical failures and fuel system problems to air brake issues and coolant leaks, we diagnose and repair at your breakdown location whenever possible. If a shop repair is needed, we coordinate towing to our facility.",
       },
       {
-        title: "Serving All of Michigan",
-        body: `We provide roadside assistance across the entire state of Michigan. Whether you are broken down in Grand Rapids, Detroit, Lansing, or anywhere in between, we will get to you. When you're stuck, we're the call to make.`,
+        title: "Serving All of West Michigan",
+        body: `We provide roadside assistance across all of West Michigan. Whether you are broken down in Grand Rapids, Kalamazoo, Muskegon, or anywhere in between, we will get to you. When you're stuck, we're the call to make.`,
       },
     ],
     cta: "Stranded? Call now — we're on our way.",
@@ -180,7 +180,7 @@ const serviceContent: Record<string, ServiceContent> = {
       },
       {
         question: "What areas do you cover for roadside service?",
-        answer: "We serve all of Michigan. Wherever your truck breaks down in the state, we will get to you.",
+        answer: "We serve all of West Michigan. Wherever your truck breaks down, we will get to you.",
       },
       {
         question: "Are you available for roadside emergencies at night?",

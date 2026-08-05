@@ -10,11 +10,11 @@ export const siteConfig = {
   zip: "49519",
   tagline: "Rain, sleet, or snow we keep you on the go 24 hours a day.",
   serviceAreas: [
+    "Wyoming",
     "Grand Rapids",
-    "Detroit",
-    "Lansing",
     "Kalamazoo",
-    "All of Michigan",
+    "Muskegon",
+    "All of West Michigan",
   ],
   hours: {
     monday: { open: "00:00", close: "23:59", closed: false },
@@ -38,21 +38,21 @@ export const siteConfig = {
       name: "General Truck Repairs",
       shortName: "Truck Repair",
       description: "From minor fixes to major overhauls, we handle the full range of commercial truck repairs to keep your fleet on the road.",
-      metaDescription: "24-hour commercial truck repair across Michigan. Brakes, axles, radiators, and air leak repairs, minor fixes to major overhauls. Call Big Bear at (616) 329-0848.",
+      metaDescription: "24-hour commercial truck repair across West Michigan. Brakes, axles, radiators, and air leak repairs, minor fixes to major overhauls. Call Big Bear at (616) 329-0848.",
     },
     {
       slug: "truck-diagnostics",
       name: "Truck Diagnostics",
       shortName: "Diagnostics",
       description: "Advanced diagnostic technology and expert knowledge to pinpoint problems with precision, so you only pay for what needs fixing.",
-      metaDescription: "Expert truck diagnostics across Michigan. We pinpoint the real problem so you only pay for what needs fixing. Call Big Bear at (616) 329-0848.",
+      metaDescription: "Expert truck diagnostics across West Michigan. We pinpoint the real problem so you only pay for what needs fixing. Call Big Bear at (616) 329-0848.",
     },
     {
       slug: "fleet-maintenance",
       name: "Fleet Maintenance",
       shortName: "Fleet Maintenance",
       description: "Proactive maintenance programs designed to keep your trucks in peak condition and prevent breakdowns before they happen.",
-      metaDescription: "Fleet maintenance across Michigan. Scheduled service keeps your trucks running and prevents costly breakdowns. Call Big Bear at (616) 329-0848.",
+      metaDescription: "Fleet maintenance across West Michigan. Scheduled service keeps your trucks running and prevents costly breakdowns. Call Big Bear at (616) 329-0848.",
     },
     {
       slug: "roadside-assistance",
@@ -60,7 +60,7 @@ export const siteConfig = {
       shortName: "Roadside Assistance",
       metaTitle: "Roadside Assistance",
       description: "Broken down on the road? We respond fast with the tools and expertise to get you moving again, day or night.",
-      metaDescription: "24-hour roadside truck repair across Michigan. Broke down? We come to you. Call Big Bear at (616) 329-0848, Monday through Saturday.",
+      metaDescription: "24-hour roadside truck repair across West Michigan. Broke down? We come to you. Call Big Bear at (616) 329-0848, Monday through Saturday.",
     },
   ],
 } as const;

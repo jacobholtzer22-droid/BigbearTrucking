@@ -13,7 +13,7 @@ const homeFaqs = [
   },
   {
     question: "Where is Big Bear Truck Repair located?",
-    answer: `We are based in ${siteConfig.city}, Michigan. We serve Wyoming, Grand Rapids, and the surrounding West Michigan area.`,
+    answer: `We are based in ${siteConfig.city}, Michigan and serve the entire state. Whether your truck breaks down in Grand Rapids, Detroit, Lansing, or anywhere in between, we will get to you.`,
   },
   {
     question: "What kind of trucks do you work on?",
@@ -270,12 +270,12 @@ export default function Home() {
       <section className="bg-concrete px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-content text-center">
           <h2 className="font-display text-3xl font-bold text-bone sm:text-4xl">
-            Serving West Michigan
+            Serving All of Michigan
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-smoke">
             {siteConfig.businessName} is based in {siteConfig.city}, Michigan
-            and provides 24-hour commercial truck repair throughout the greater
-            Grand Rapids and West Michigan area.
+            and provides 24-hour commercial truck repair across the entire
+            state. Wherever your truck breaks down, we will get to you.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             {siteConfig.serviceAreas.map((area) => (

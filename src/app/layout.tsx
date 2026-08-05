@@ -46,14 +46,14 @@ const autoRepairSchema = {
   url: siteConfig.url,
   telephone: siteConfig.phoneE164,
   email: siteConfig.email,
-  areaServed: siteConfig.serviceAreas.map((area) => ({
-    "@type": "City",
-    name: area,
+  areaServed: {
+    "@type": "State",
+    name: "Michigan",
     containedInPlace: {
-      "@type": "State",
-      name: "Michigan",
+      "@type": "Country",
+      name: "US",
     },
-  })),
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Barlow_Condensed } from "next/font/google";
 import { siteConfig } from "@/site.config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCallBar } from "@/components/MobileCallBar";
+import { CallTracking } from "@/components/CallTracking";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
@@ -79,9 +81,6 @@ const websiteSchema = {
   url: siteConfig.url,
 };
 
-// gtag placeholder: when Google Ads start, add the global site tag here.
-// The data-cta="call" attribute on PhoneLink enables click-to-call conversion
-// tracking with a single selector: [data-cta="call"].
 
 export default function RootLayout({
   children,
@@ -91,6 +90,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
       <body className="min-h-dvh bg-bone font-body text-asphalt antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18373116344"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18373116344');`}
+        </Script>
+        <CallTracking />
         <JsonLd data={autoRepairSchema} />
         <JsonLd data={websiteSchema} />
         <Header />

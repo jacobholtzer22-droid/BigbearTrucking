@@ -45,6 +45,51 @@ const serviceReviews: Record<string, string> = {
   "truck-repair": "D B",
 };
 
+interface GalleryImage {
+  src: string;
+  alt: string;
+  label?: string;
+}
+
+interface GalleryGroup {
+  title: string;
+  images: GalleryImage[];
+}
+
+const serviceGallery: Record<string, GalleryGroup[]> = {
+  "truck-repair": [
+    {
+      title: "Brake Chamber Replacement",
+      images: [
+        { src: "/images/brake-chamber-before-768w.webp", alt: "Worn brake chamber on a commercial truck axle before replacement", label: "Before" },
+        { src: "/images/brake-chamber-after-768w.webp", alt: "New brake chamber installed on a commercial truck axle", label: "After" },
+      ],
+    },
+    {
+      title: "Air Bag Suspension Repair",
+      images: [
+        { src: "/images/airbag-suspension-repair-768w.webp", alt: "Failed air bag suspension removed with new air bag installed on truck axle" },
+      ],
+    },
+    {
+      title: "Serpentine Belt Replacement",
+      images: [
+        { src: "/images/serpentine-belt-before-768w.webp", alt: "Worn serpentine belt routed around truck engine pulleys before replacement", label: "Before" },
+        { src: "/images/serpentine-belt-after-768w.webp", alt: "New serpentine belt installed on truck engine pulleys", label: "After" },
+      ],
+    },
+  ],
+  "roadside-assistance": [
+    {
+      title: "On-Site Roadside Repairs",
+      images: [
+        { src: "/images/roadside-box-truck-768w.webp", alt: "Box truck pulled over on highway shoulder receiving roadside repair service" },
+        { src: "/images/roadside-semi-truck-768w.webp", alt: "Black semi truck on highway shoulder being serviced by Big Bear Truck Repair" },
+      ],
+    },
+  ],
+};
+
 const serviceContent: Record<string, ServiceContent> = {
   "truck-repair": {
     heading: "General Truck Repairs",
@@ -226,6 +271,7 @@ export default function ServiceDetailPage({
   const header = serviceHeaders[params.slug];
   const reviewName = serviceReviews[params.slug];
   const review = reviewName ? reviews.find((r) => r.name === reviewName) : null;
+  const gallery = serviceGallery[params.slug];
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -369,6 +415,57 @@ export default function ServiceDetailPage({
           ))}
         </div>
       </section>
+
+      {gallery && gallery.length > 0 && (
+        <section className="border-t border-bone px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mx-auto max-w-content">
+            <h2 className="font-display text-2xl font-bold text-asphalt sm:text-3xl">
+              See Our Work
+            </h2>
+            <div className="mt-8 space-y-10">
+              {gallery.map((group) => (
+                <div key={group.title}>
+                  <h3 className="font-display text-lg font-bold text-asphalt">
+                    {group.title}
+                  </h3>
+                  <div
+                    className={`mt-4 grid gap-4 ${
+                      group.images.length === 1
+                        ? "max-w-sm"
+                        : "grid-cols-2"
+                    }`}
+                  >
+                    {group.images.map((img) => (
+                      <div key={img.src} className="overflow-hidden rounded-lg">
+                        <div className="relative aspect-[3/4]">
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className="object-cover"
+                            sizes={
+                              group.images.length === 1
+                                ? "(max-width: 768px) 100vw, 384px"
+                                : "(max-width: 768px) 50vw, 400px"
+                            }
+                          />
+                        </div>
+                        {img.label && (
+                          <div className="bg-asphalt px-3 py-1.5">
+                            <span className="font-display text-sm font-bold text-bone">
+                              {img.label}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {review && (
         <section className="bg-concrete px-4 py-12 sm:px-6 lg:px-8">

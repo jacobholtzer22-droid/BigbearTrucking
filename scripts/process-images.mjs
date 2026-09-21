@@ -2,7 +2,9 @@ import sharp from 'sharp';
 import { mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
-const RAW_DIR = 'public/images/raw';
+// Source photos live outside public/ on purpose: anything under public/ is served as is,
+// and these originals carry EXIF GPS data. sharp drops metadata on the resized outputs.
+const RAW_DIR = '_raw';
 const OUT_DIR = 'public/images';
 
 const IMAGES = [

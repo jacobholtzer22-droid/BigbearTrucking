@@ -37,4 +37,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+# Raw client photos live OUTSIDE public/ so they can never be served. They carry EXIF,
+# including GPS coordinates. The old path stays ignored so a copy put back there by
+# mistake still cannot be committed.
+_raw/
 public/images/raw/

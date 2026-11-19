@@ -89,6 +89,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
+      <head>
+        <script defer src="https://www.alignandacquire.com/t/s/big-bear-truck-repair.js"></script>
+      </head>
       <body className="min-h-dvh bg-bone font-body text-asphalt antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18373116344"

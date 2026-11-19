@@ -98,6 +98,9 @@ export function Footer() {
             >
               {siteConfig.phoneDisplay}
             </a>
+            {" "}·{" "}
+            <Link href="/privacy" className="transition-colors duration-200 hover:text-bone">Privacy</Link>
+            <span hidden data-aa-cookie-wrap>{" "}·{" "}<a href="#" data-aa-cookie-settings className="transition-colors duration-200 hover:text-bone">Cookie settings</a></span>
           </p>
         </div>
       </div>
